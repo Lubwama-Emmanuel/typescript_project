@@ -24,11 +24,23 @@ export const getTodos:RequestHandler = async(req, res, next) => {
 export const updateTask:RequestHandler = async (req, res, next) => {
     const id = req.params.id;
     const status = req.body
-    console.log("Here are the parameters", id, status)
-    // const updateTask = await Todo.findByIdAndUpdate(id, )
+
+    const updateTask = await Todo.findByIdAndUpdate(id, status)
 
     res.status(201).json({
         status: "Success",
         message: "Created successfully----",
+        task: updateTask
+    })
+}
+
+export const getTask:RequestHandler = async(req, res, next) => {
+    const id = req.params.id;
+    console.log(id)
+    const task = await Todo.findById(id);
+
+    res.status(200).json({
+        status: "Success",
+        data: task
     })
 }

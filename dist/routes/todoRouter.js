@@ -9,4 +9,5 @@ const route = express_1.default.Router();
 route.get('/tasks', todoController_1.getTodos);
 route.post('/tasks', todoController_1.addTask);
 route.patch('/tasks/:id', todoController_1.updateTask);
+route.get('/tasks/:id', todoController_1.getTask);
 exports.default = route;
